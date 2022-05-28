@@ -1,6 +1,6 @@
 # 20. Valid Parentheses
 
-[LeetCode](https://leetcode.cn/problems/valid-parentheses/))
+[LeetCode](https://leetcode.cn/problems/valid-parentheses/)
 
 Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 
