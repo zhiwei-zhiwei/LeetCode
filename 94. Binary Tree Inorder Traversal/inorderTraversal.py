@@ -6,6 +6,7 @@
 #         self.right = right
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        ''' recursive sol '''
         res = []
 
         def inorder(root):
@@ -15,4 +16,19 @@ class Solution:
             res.append(root.val)
             inorder(root.right)
         inorder(root)
+        return res
+
+
+        ''' iterative sol '''
+        res = []
+        stack = []
+        node = root
+
+        while node or stack:
+            while node:
+                stack.append(node)
+                node = node.left
+            node = stack.pop()
+            res.append(node.val)
+            node = node.right
         return res
