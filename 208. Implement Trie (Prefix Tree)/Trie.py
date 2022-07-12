@@ -1,6 +1,8 @@
+# DFS solution
 class TireNode:
     def __init__(self):
         self.children = {}
+        # store the node by letters
         self.isEnd = False
 
 class Trie:
@@ -13,17 +15,20 @@ class Trie:
         
         for i in word:
             if i not in curr.children:
+                # while the root node doest have the letter
+                # generate a new one
                 curr.children[i] = TireNode()
-            curr = curr.children[i]
-        curr.isEnd = True
+            curr = curr.children[i] # keep adding the new letters
+        curr.isEnd = True # as long as reach the end of the word, make that place
 
     def search(self, word: str) -> bool:
+        # DFS seaching
         curr = self.root
         for i in word:
             if i not in curr.children:
                 return False
             curr = curr.children[i]
-        return curr.isEnd
+        return curr.isEnd #make sure that is the end of that path
 
     def startsWith(self, prefix: str) -> bool:
         curr = self.root
