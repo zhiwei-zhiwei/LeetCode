@@ -1,7 +1,7 @@
 class Solution:
     def numSquares(self, n: int) -> int:
-        dp = [0] * (n+1)
-        square = 2
+        dp = [n for _ in range(n+1)]
+        dp[0] = 0
         for i in range(1, n+1):
             dp[i] = i
             for square in range(2,n):
