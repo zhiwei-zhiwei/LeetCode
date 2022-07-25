@@ -1,6 +1,6 @@
 # 448. Find All Numbers Disappeared in an Array
 
-## MEDIUM
+## EASY
 
 [LeetCode](https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array/)
 
