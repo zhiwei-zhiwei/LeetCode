@@ -1,7 +1,7 @@
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
         sumValue = sum(nums)
-        if target > sumValue or (sumValue + target) % 2 == 1: return 0
+        if abs(target) > sumValue or (sumValue + target) % 2 == 1: return 0
         bagSize = (sumValue + target) // 2
         dp = [0] * (bagSize + 1)
         dp[0] = 1
