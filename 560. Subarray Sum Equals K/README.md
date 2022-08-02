@@ -1,6 +1,6 @@
 # 560. Subarray Sum Equals K
 
-## EASY
+## MEDIUM
 
 [LeetCode](https://leetcode.cn/problems/find-all-numbers-disappeared-in-an-array/)
 
