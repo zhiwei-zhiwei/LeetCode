@@ -1,4 +1,4 @@
-class Solution:
+class Solution1:
     def trap(self, height: List[int]) -> int:
         sum = 0
         # for i in range(10,0,-1):
@@ -20,3 +20,38 @@ class Solution:
                 sum += (temp-height[i])
             # print("sum ===== ",sum)
         return sum
+    
+    
+class Solution2:
+    def trap(self, height: List[int]) -> int:
+        res = 0
+        for i in range(1,len(height)):
+            leftMax = max(height[:i])
+            
+            rightMax = max(height[i:])
+
+            # print(leftMax, "   ", rightMax)
+            minHeight = min(leftMax, rightMax)
+            if minHeight > height[i]:
+                res = res + (minHeight - height[i])
+        
+        return res
+    
+    
+    
+class Solution3:
+    def trap(self, height: List[int]) -> int:
+        ans = 0
+        h1 = 0
+        h2 = 0
+        for i in range(len(height)):
+            h1 = max(h1,height[i])
+            h2 = max(h2,height[-i-1])
+            ans = ans + h1 + h2 -height[i]
+        temp = len(height)*h1
+        return  ans - len(height)*h1
+    
+    
+    
+    
+    
