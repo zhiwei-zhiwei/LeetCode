@@ -1,15 +1,25 @@
-class Solution:
+from typing import List
+
+class solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        leftMost, rightMost = 1, 1
-        res = []
-        res.append(leftMost)
-        for i in range(1,len(nums)):
-            leftMost = leftMost * nums[i-1]
-            res.append(leftMost)
-        for i in range(len(nums)-1,-1,-1):
-            res[i] = res[i] * rightMost
-            rightMost = rightMost * nums[i]
+        from_left = [1] * len(nums)
+        for i in range(1, len(nums)):
+            from_left[i] = from_left[i - 1] * nums[i - 1]
+
+        from_right = [1] * len(nums)
+        for i in range(len(nums) - 2, -1, -1):
+            from_right[i] = from_right[i + 1] * nums[i + 1]
+
+        res = [1] * len(nums)
+        for i in range(len(nums)):
+            res[i] = from_left[i] * from_right[i]
         return res
+
+nums = input().strip('[]').split(',')
+nums = [int(n) for n in nums]
+sol = solution()
+print(sol.productExceptSelf(nums))
+
         '''
         org = [1, 2, 3, 4]
         leftMost = 1, 1*nums[0], 1*nums[0]*nums[1], 1*nums[0]*nums[1]*nums[2]
